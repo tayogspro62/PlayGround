@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f6f7ee">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%8F%98%EF%B8%8F%3C/text%3E%3C/svg%3E">
-  <title>Little Borough — Mini City Builder</title>
+  <title>Küçük Kasaba — Mini Şehir Kurma Oyunu</title>
   <style>
     :root { color-scheme: light; --ink:#213b35; --muted:#75877d; --paper:#f6f7ee; --panel:#fffefa; --line:#e6eadf; --green:#23765a; --mint:#e1f1e7; --orange:#f3a75c; }
     * { box-sizing:border-box; }
@@ -83,45 +83,45 @@
 <body>
   <main class="shell">
     <header class="topbar">
-      <div class="brand"><div class="brand-mark">🏘️</div><div><h1>Little Borough</h1><p class="subtitle">A tiny place with big potential</p></div></div>
-      <div class="top-actions"><button class="quiet-btn" id="soundBtn" aria-label="Toggle sound">🔔 Sounds on</button><button class="quiet-btn" id="resetBtn">↻ New town</button></div>
+      <div class="brand"><div class="brand-mark">🏘️</div><div><h1>Küçük Kasaba</h1><p class="subtitle">Küçük bir yer, büyük hayaller</p></div></div>
+      <div class="top-actions"><button class="quiet-btn" id="soundBtn" aria-label="Sesi aç veya kapat">🔔 Ses açık</button><button class="quiet-btn" id="resetBtn">↻ Yeni kasaba</button></div>
     </header>
-    <section class="stats" aria-label="Town statistics">
-      <div class="stat"><div class="stat-icon">💰</div><div><div class="stat-label">Town funds</div><div class="stat-value" id="money">$0</div></div></div>
-      <div class="stat"><div class="stat-icon">🧑‍🤝‍🧑</div><div><div class="stat-label">Residents</div><div class="stat-value" id="population">0 <small>/ 100</small></div></div></div>
-      <div class="stat"><div class="stat-icon">😊</div><div><div class="stat-label">Happiness</div><div class="stat-value" id="happiness">0% <small>●●●●●</small></div></div></div>
-      <div class="stat"><div class="stat-icon">📈</div><div><div class="stat-label">Monthly balance</div><div class="stat-value" id="balance">+$0</div></div></div>
+    <section class="stats" aria-label="Kasaba istatistikleri">
+      <div class="stat"><div class="stat-icon">💰</div><div><div class="stat-label">Kasaba bütçesi</div><div class="stat-value" id="money">₺0</div></div></div>
+      <div class="stat"><div class="stat-icon">🧑‍🤝‍🧑</div><div><div class="stat-label">Nüfus</div><div class="stat-value" id="population">0 <small>/ 100</small></div></div></div>
+      <div class="stat"><div class="stat-icon">😊</div><div><div class="stat-label">Mutluluk</div><div class="stat-value" id="happiness">0% <small>●●●●●</small></div></div></div>
+      <div class="stat"><div class="stat-icon">📈</div><div><div class="stat-label">Aylık gelir-gider</div><div class="stat-value" id="balance">+₺0</div></div></div>
     </section>
     <section class="layout">
       <div class="city-panel">
-        <div class="city-head"><div class="city-title">🌿 <span id="townName">Cloverfield</span></div><div class="month-pill" id="month">SPRING · MONTH 1</div></div>
-        <div class="canvas-wrap"><canvas id="city" aria-label="Isometric city map"></canvas><div class="map-hint">Choose a building, then tap an empty tile to place it</div></div>
-        <div class="toolbar"><div class="selection-note" id="selectionNote">Selected: 🏠 Cottage · connect it to a road</div><button class="advance" id="advanceBtn">End month <span>→</span></button></div>
+        <div class="city-head"><div class="city-title">🌿 <span id="townName">Yoncaova</span></div><div class="month-pill" id="month">İLKBAHAR · 1. AY</div></div>
+        <div class="canvas-wrap"><canvas id="city" aria-label="İzometrik kasaba haritası"></canvas><div class="map-hint">Bir yapı seç, sonra boş bir kareye dokunarak yerleştir</div></div>
+        <div class="toolbar"><div class="selection-note" id="selectionNote">Seçili: 🏠 Kulübe · yola bağla</div><button class="advance" id="advanceBtn">Ayı bitir <span>→</span></button></div>
       </div>
       <aside class="side-panel">
-        <div class="side-heading"><h2>Build your borough</h2><span class="tiny-label">BUILD MENU</span></div>
-        <p class="side-intro">Grow a happy neighborhood. Homes and shops need a road next door to thrive.</p>
+        <div class="side-heading"><h2>Kasabanı kur</h2><span class="tiny-label">YAPI MENÜSÜ</span></div>
+        <p class="side-intro">Mutlu bir mahalle kur. Evlerin ve dükkânların gelişmesi için yanlarında yol olmalı.</p>
         <div class="build-list" id="buildList"></div>
-        <div class="tools-row"><button class="tool-btn" id="bulldozeBtn">🧹 Bulldoze</button><button class="tool-btn" id="inspectBtn">🔎 Inspect</button></div>
-        <div class="goal"><div class="goal-head"><span>🏆 Little big city</span><span id="goalPercent">0%</span></div><p>Welcome 100 residents and keep happiness at 75% or more.</p><div class="progress-track"><div class="progress-fill" id="goalFill"></div></div></div>
-        <div class="log"><div class="log-title"><span>Town notices</span><span id="noticeCount">01</span></div><div class="log-lines" id="logLines"></div></div>
+        <div class="tools-row"><button class="tool-btn" id="bulldozeBtn">🧹 Yıkım</button><button class="tool-btn" id="inspectBtn">🔎 İncele</button></div>
+        <div class="goal"><div class="goal-head"><span>🏆 Küçük kasaba, büyük hedef</span><span id="goalPercent">0%</span></div><p>100 kişiye ev sahipliği yap ve mutluluğu en az %75 seviyesinde tut.</p><div class="progress-track"><div class="progress-fill" id="goalFill"></div></div></div>
+        <div class="log"><div class="log-title"><span>Kasaba haberleri</span><span id="noticeCount">01</span></div><div class="log-lines" id="logLines"></div></div>
       </aside>
     </section>
   </main>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <div class="win-overlay" id="winOverlay"><div class="win-card"><div class="win-icon">🎉</div><h2>You did it!</h2><p id="winText">A wonderful little city is thriving.</p><button class="advance" id="keepPlaying">Keep playing</button></div></div>
+  <div class="win-overlay" id="winOverlay"><div class="win-card"><div class="win-icon">🎉</div><h2>Başardın!</h2><p id="winText">Harika kasaban gelişip güzelleşiyor.</p><button class="advance" id="keepPlaying">Oynamaya devam et</button></div></div>
   <script>
   (() => {
     'use strict';
     const SIZE=9, TYPES={
-      road:{name:'Road',emoji:'🛣️',cost:5,desc:'Connect your neighborhood',color:'#bfc3ad'},
-      home:{name:'Cottage',emoji:'🏠',cost:20,desc:'12 homes · welcomes residents',color:'#e4a77e'},
-      shop:{name:'Corner shop',emoji:'🏪',cost:32,desc:'10 jobs · earns town income',color:'#84b9a2'},
-      park:{name:'Pocket park',emoji:'🌳',cost:22,desc:'A little green, lots of joy',color:'#80bb79'},
-      civic:{name:'Town hall',emoji:'🏛️',cost:45,desc:'Jobs, services & town pride',color:'#8fa9c8'}
+      road:{name:'Yol',emoji:'🛣️',cost:5,desc:'Mahalleni birbirine bağla',color:'#bfc3ad'},
+      home:{name:'Kulübe',emoji:'🏠',cost:20,desc:'12 kişilik · yeni sakinleri ağırlar',color:'#e4a77e'},
+      shop:{name:'Bakkal',emoji:'🏪',cost:32,desc:'10 iş imkânı · kasabaya gelir sağlar',color:'#84b9a2'},
+      park:{name:'Cep parkı',emoji:'🌳',cost:22,desc:'Biraz yeşillik, bolca neşe',color:'#80bb79'},
+      civic:{name:'Belediye binası',emoji:'🏛️',cost:45,desc:'İş, hizmet ve kasaba gururu',color:'#8fa9c8'}
     };
     const EMPTY=()=>Array.from({length:SIZE},()=>Array(SIZE).fill(null));
-    const initial=()=>({money:118,pop:8,happy:66,month:1,grid:EMPTY(),logs:['A fresh patch of land, and a handful of hopeful neighbors.'],won:false});
+    const initial=()=>({money:118,pop:8,happy:66,month:1,grid:EMPTY(),logs:['Yeni bir arazi ve umut dolu birkaç komşu.'],won:false});
     let state=load(), selected='home', mode='build', sounds=true, hover=null, toastTimer;
     const canvas=document.getElementById('city'), ctx=canvas.getContext('2d');
     // A little starter street, one home, one shop, and a pocket park.
@@ -173,29 +173,29 @@
       }
       ctx.restore();
     }
-    function renderMenu(){const list=$('buildList');list.innerHTML='';for(const [key,b] of Object.entries(TYPES)){const btn=document.createElement('button');btn.className='build-card'+(selected===key&&mode==='build'?' active':'');btn.innerHTML=`<span class="build-emoji">${b.emoji}</span><span class="build-copy"><span class="build-name">${b.name}<span class="build-cost">$${b.cost}</span></span><span class="build-desc">${b.desc}</span></span>`;btn.addEventListener('click',()=>{selected=key;mode='build';render();});list.append(btn);}}
+    function renderMenu(){const list=$('buildList');list.innerHTML='';for(const [key,b] of Object.entries(TYPES)){const btn=document.createElement('button');btn.className='build-card'+(selected===key&&mode==='build'?' active':'');btn.innerHTML=`<span class="build-emoji">${b.emoji}</span><span class="build-copy"><span class="build-name">${b.name}<span class="build-cost">₺${b.cost}</span></span><span class="build-desc">${b.desc}</span></span>`;btn.addEventListener('click',()=>{selected=key;mode='build';render();});list.append(btn);}}
     function renderLog(){$('logLines').innerHTML=state.logs.map((t,i)=>`<div class="log-line"><b>${i?'•':'✦'}</b><span>${t}</span></div>`).join('');$('noticeCount').textContent=String(state.logs.length).padStart(2,'0');}
-    function render(){const s=stats();$('money').textContent='$'+state.money;$('population').innerHTML=`${state.pop} <small>/ 100</small>`;$('happiness').innerHTML=`${s.happiness}% <small>${s.happiness>=75?'●●●●●':'●●●○○'}</small>`;$('balance').textContent=(s.balance>=0?'+$':'−$')+Math.abs(s.balance);$('balance').style.color=s.balance<0?'#bd674e':'';
-      const seasons=['SPRING','SUMMER','AUTUMN','WINTER'];$('month').textContent=`${seasons[Math.floor((state.month-1)/3)%4]} · MONTH ${state.month}`;
+    function render(){const s=stats();$('money').textContent='₺'+state.money;$('population').innerHTML=`${state.pop} <small>/ 100</small>`;$('happiness').innerHTML=`${s.happiness}% <small>${s.happiness>=75?'●●●●●':'●●●○○'}</small>`;$('balance').textContent=(s.balance>=0?'+₺':'−₺')+Math.abs(s.balance);$('balance').style.color=s.balance<0?'#bd674e':'';
+      const seasons=['İLKBAHAR','YAZ','SONBAHAR','KIŞ'];$('month').textContent=`${seasons[Math.floor((state.month-1)/3)%4]} · ${state.month}. AY`;
       const goal=Math.min(100,Math.round((Math.min(state.pop,100)/100*.72+Math.min(s.happiness,75)/75*.28)*100));$('goalPercent').textContent=goal+'%';$('goalFill').style.width=goal+'%';
-      const b=TYPES[selected];$('selectionNote').textContent=mode==='bulldoze'?'Selected: 🧹 Bulldoze · tap a building to clear it':mode==='inspect'?'Selected: 🔎 Inspect · tap any tile for details':`Selected: ${b.emoji} ${b.name} · ${['home','shop','civic'].includes(selected)?'connect it to a road':'place on any empty tile'}`;
+      const b=TYPES[selected];$('selectionNote').textContent=mode==='bulldoze'?'Seçili: 🧹 Yık · kaldırmak için bir yapıya dokun':mode==='inspect'?'Seçili: 🔎 İncele · ayrıntılar için bir kareye dokun':`Seçili: ${b.emoji} ${b.name} · ${['home','shop','civic'].includes(selected)?'bir yola bağla':'boş bir kareye yerleştir'}`;
       $('bulldozeBtn').classList.toggle('active',mode==='bulldoze');$('inspectBtn').classList.toggle('active',mode==='inspect');renderMenu();renderLog();draw();save();
     }
     function eventPoint(e){const r=canvas.getBoundingClientRect(),px=e.clientX-r.left,py=e.clientY-r.top,d=dims(),a=(px-d.ox)/(d.tw/2),b=(py-d.oy)/(d.th/2);return{x:Math.round((a+b)/2),y:Math.round((b-a)/2)};}
     canvas.addEventListener('pointermove',e=>{hover=eventPoint(e);draw();});canvas.addEventListener('pointerleave',()=>{hover=null;draw();});
     canvas.addEventListener('pointerdown',e=>{const p=eventPoint(e),{x,y}=p;if(x<0||y<0||x>=SIZE||y>=SIZE){return;}const tile=state.grid[y][x];
-      if(mode==='inspect'){notify(tile?`${TYPES[tile.type].name} · ${TYPES[tile.type].desc}`:'An empty plot, ready for something lovely.');return;}
-      if(mode==='bulldoze'){if(!tile){notify('There is nothing to clear on this plot.');return;}state.grid[y][x]=null;const refund=Math.floor(TYPES[tile.type].cost*.35);state.money+=refund;addLog(`${TYPES[tile.type].name} cleared · $${refund} reclaimed.`);render();return;}
-      if(tile){notify('That plot is already occupied.');return;}const b=TYPES[selected];if(state.money<b.cost){notify('Not enough funds yet — let the town grow for a month.');return;}
-      if(['home','shop','civic'].includes(selected)&&!connected(x,y)){notify('That needs to touch a road first. Add a road beside this plot.');return;}
-      state.money-=b.cost;state.grid[y][x]={type:selected};tone(690,.07);addLog(`${b.name} built for $${b.cost}.`);render();
+      if(mode==='inspect'){notify(tile?`${TYPES[tile.type].name} · ${TYPES[tile.type].desc}`:'Boş bir arazi, güzel bir şeyler için hazır.');return;}
+      if(mode==='bulldoze'){if(!tile){notify('Bu arazide kaldırılacak bir şey yok.');return;}state.grid[y][x]=null;const refund=Math.floor(TYPES[tile.type].cost*.35);state.money+=refund;addLog(`${TYPES[tile.type].name} kaldırıldı · ₺${refund} geri alındı.`);render();return;}
+      if(tile){notify('Bu arazi zaten dolu.');return;}const b=TYPES[selected];if(state.money<b.cost){notify('Yeterli bütçe yok — kasabanın büyümesi için bir ay bekle.');return;}
+      if(['home','shop','civic'].includes(selected)&&!connected(x,y)){notify('Önce yola bağlanmalı. Bu arazinin yanına bir yol ekle.');return;}
+      state.money-=b.cost;state.grid[y][x]={type:selected};tone(690,.07);addLog(`${b.name} inşa edildi · ₺${b.cost}.`);render();
     });
     $('advanceBtn').addEventListener('click',()=>{tone(470,.11);const s=stats();let growth=0;if(s.cap>state.pop&&s.jobs>0&&s.happiness>=45){growth=Math.min(s.cap-state.pop,Math.max(1,Math.floor((s.happiness-35)/18)+(s.jobs>=state.pop*.45?1:0)));state.pop+=growth;}
-      state.money+=s.balance;state.happy=s.happiness;state.month++;if(state.money<0)notify('The town is in the red! Build shops or trim expenses.');else if(growth)addLog(`A lovely month: ${growth} new ${growth===1?'neighbor':'neighbors'} moved in.`);else addLog(`Month closed · balance ${s.balance>=0?'+':''}$${s.balance}.`);
-      render();if(state.pop>=100&&stats().happiness>=75&&!state.won){state.won=true;$('winText').textContent=`${state.pop} residents call your little borough home, and happiness is at ${stats().happiness}%. What a lovely place to live!`;$('winOverlay').classList.add('show');} });
+      state.money+=s.balance;state.happy=s.happiness;state.month++;if(state.money<0)notify('Kasabanın bütçesi açık verdi! Bakkal kur veya giderleri azalt.');else if(growth)addLog(`Güzel bir ay: ${growth} yeni komşu taşındı.`);else addLog(`Ay sona erdi · bakiye ${s.balance>=0?'+':''}₺${s.balance}.`);
+      render();if(state.pop>=100&&stats().happiness>=75&&!state.won){state.won=true;$('winText').textContent=`${state.pop} kişi bu güzel kasabayı evi olarak görüyor ve mutluluk ${stats().happiness}%. Yaşamak için harika bir yer!`;$('winOverlay').classList.add('show');} });
     $('bulldozeBtn').addEventListener('click',()=>{mode=mode==='bulldoze'?'build':'bulldoze';render();});$('inspectBtn').addEventListener('click',()=>{mode=mode==='inspect'?'build':'inspect';render();});
-    $('resetBtn').addEventListener('click',()=>{if(confirm('Start a brand-new town? Your current borough will be cleared.')){state=initial();for(let x=1;x<=7;x++)state.grid[4][x]={type:'road'};state.grid[3][2]={type:'home'};state.grid[3][4]={type:'shop'};state.grid[3][6]={type:'park'};selected='home';mode='build';$('winOverlay').classList.remove('show');render();notify('A fresh new borough is ready!');}});
-    $('soundBtn').addEventListener('click',e=>{sounds=!sounds;e.currentTarget.textContent=sounds?'🔔 Sounds on':'🔕 Sounds off';});$('keepPlaying').addEventListener('click',()=>$('winOverlay').classList.remove('show'));
+    $('resetBtn').addEventListener('click',()=>{if(confirm('Yepyeni bir kasaba kurulsun mu? Mevcut kasaban silinecek.')){state=initial();for(let x=1;x<=7;x++)state.grid[4][x]={type:'road'};state.grid[3][2]={type:'home'};state.grid[3][4]={type:'shop'};state.grid[3][6]={type:'park'};selected='home';mode='build';$('winOverlay').classList.remove('show');render();notify('Yepyeni kasaban hazır!');}});
+    $('soundBtn').addEventListener('click',e=>{sounds=!sounds;e.currentTarget.textContent=sounds?'🔔 Ses açık':'🔕 Ses kapalı';});$('keepPlaying').addEventListener('click',()=>$('winOverlay').classList.remove('show'));
     window.addEventListener('resize',resize);renderMenu();renderLog();resize();render();
   })();
   </script>
